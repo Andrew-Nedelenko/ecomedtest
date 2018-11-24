@@ -42,8 +42,8 @@ app.post('/send', (req, res) => {
         port: 587,
         secure: false, // true for 465, false for other ports
         auth: {
-            user: 'info@ecomedtest.com',
-            pass: 'MPbHE90D' 
+            user: 'test@test.com',
+            pass: 'test' 
         },
         tls:{
         	rejectUnauthorized:false
@@ -53,7 +53,7 @@ app.post('/send', (req, res) => {
     // setup email data with unicode symbols
     let mailOptions = {
         from: '"Заявка обратного звонка" <info@ecomedtest.com>', // sender address
-        to: 'info@ecomedtest.com', // list of receivers
+        to: 'test@test.com', // list of receivers
         subject: 'Новые данные о пользователе', // Subject line
         text: '', // plain text body
         html: output // html body
@@ -73,4 +73,5 @@ app.post('/send', (req, res) => {
 });
 
 
-app.listen(3000, () => console.log('Server started on port 3000'));
+const port = process.env.PORT || 3200
+app.listen(port, () => console.log(`Server started on port ${port}`));
